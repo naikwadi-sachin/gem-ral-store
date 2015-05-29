@@ -16,7 +16,20 @@
 		  return this.tab === index;
 	  };
 	  
-  })
+  });
+
+  app.controller('ReviewController', function(){
+    this.review={};
+
+    this.addReview = function(product){
+//      console.log("stars="+this.review.stars);
+//      console.log("body="+this.review.body);
+//      console.log("author="+this.review.author);
+      product.reviews.push(this.review);
+      this.review={};
+    };
+
+  });
 
   var gems = [{
     name: 'Azurite',
@@ -26,7 +39,13 @@
     rarity: 7,
     color: '#CCC',
     faces: 14,
-    images: [ ]
+    images: [ ],
+	reviews : [{
+		stars : 5,
+		body : 'I love this product!',
+		author : 'joe@thomas.com'
+	}
+	]
   }, {
     name: 'Bloodstone',
     description: "Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
