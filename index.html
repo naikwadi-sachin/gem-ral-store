@@ -16,20 +16,12 @@
             <!--<product-title></product-title>-->
         </h3>
 
-        
 
         <!-- Image Gallery  -->
         <div class="gallery">
             <img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}"/>
-            <section ng-controller="PanelController as panel">
-                <ul class="nav nav-pills">
-                    <li ng-class="{active:panel.isSelected(1)}"><a href="" ng-click="panel.selectTab(1)">Description</a>
-                    </li>
-                    <li ng-class="{active:panel.isSelected(2)}"><a href=""
-                                                                   ng-click="panel.selectTab(2)">Specification</a></li>
-                    <li ng-class="{active:panel.isSelected(3)}"><a href="" ng-click="panel.selectTab(3)">Reviews</a>
-                    </li>
-                </ul>
+            <section>
+                <product-panels ></product-panels>
 
                 <div class="panel" ng-show="panel.isSelected(1)">
                     <h4>Description</h4>
@@ -45,7 +37,7 @@
                     <li ng-repeat="review in product.reviews">
                         <blockquote>
                             <b>{{review.stars}} Stars : </b>
-                                {{review.body}}
+                            {{review.body}}
 
                             <p><cite>By : {{review.author}}</cite></p>
                         </blockquote>
@@ -66,6 +58,7 @@
                         </select>
                         <textarea ng-model="reviewCtrl.review.body" required></textarea>
                         <input ng-model="reviewCtrl.review.author" type="email" required/>
+
                         <div>{{reviewForm.$valid}}</div>
                         <input type="submit" value="Submit"/>
                     </form>

@@ -38,6 +38,26 @@
     };
   });
 
+  app.directive('productPanels', function(){
+    return{
+      restrict : 'E',
+      templateUrl : 'product-panels.html',
+      controller : function(){
+                   	  this.tab = 1;
+
+                   	  this.selectTab = function(index){
+                   		  this.tab = index;
+                   	  };
+
+                   	  this.isSelected = function(index){
+                   		  return this.tab === index;
+                   	  };
+
+                     },
+      controllerAs : 'panel'
+    }
+  });
+
   var gems = [{
     name: 'Azurite',
     description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
