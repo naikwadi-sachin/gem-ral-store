@@ -12,10 +12,11 @@
 <div class="list-group">
     <!--  Product Container  -->
     <div class="list-group-item" ng-repeat="product in store.products">
-        <h3>
-            {{product.name}}
-            <em class="">{{product.price | currency}}</em>
+        <h3 product-title>
+            <!--<product-title></product-title>-->
         </h3>
+
+        
 
         <!-- Image Gallery  -->
         <div class="gallery">
